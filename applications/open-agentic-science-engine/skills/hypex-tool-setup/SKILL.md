@@ -6,7 +6,7 @@ description: Activate and verify the DDE-provisioned Hypex tools before running 
 # Hypex Tool Setup in DDE
 
 The DDE bootstrapper provisions `hypex`, `elo`, and `prox` from the source
-vendored in `applications/DDE/tools/vendor/hypex`. Literature access is part
+vendored in `applications/open-agentic-science-engine/tools/vendor/hypex`. Literature access is part
 of the `dde` CLI; there is no separate `lit` executable in DDE.
 
 ## Activate
@@ -44,5 +44,5 @@ a worker container or install packages into the shared venv.
 | `prox` | Vendored Python source | Similarity, clustering, and near-duplicate detection |
 
 The bootstrapper is the only owner of provisioning. Repair a missing tool by
-re-running `applications/DDE/tools/install.sh`; `--binaries-only` is suitable
+re-running `applications/open-agentic-science-engine/tools/install.sh`; `--binaries-only` is suitable
 when the full Python environment, including prox dependencies, already exists.
