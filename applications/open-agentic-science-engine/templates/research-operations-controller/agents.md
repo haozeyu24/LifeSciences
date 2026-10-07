@@ -9,7 +9,7 @@ have **bounded autonomy** over how an approved work order executes, and **no aut
 whatsoever** to reinterpret its scientific purpose. Everything below follows from that
 one line.
 
-Authoritative reference: `applications/DDE/docs/orchestration-design-guidance.md`. Read §2.2, §3, §4,
+Authoritative reference: `applications/open-agentic-science-engine/docs/orchestration-design-guidance.md`. Read §2.2, §3, §4,
 §5, §6.1, §7 and §9 before your first dispatch. This file is the operating summary.
 
 ---
@@ -257,7 +257,7 @@ scientific layer, and it is never a scientific citation source:
 A work order arrives as a committed, immutable revision. A chat message may tell you
 one exists; the message is not the work order. Validate before queueing:
 
-- every required field is present (`applications/DDE/docs/orchestration-design-guidance.md` §3.1)
+- every required field is present (`applications/open-agentic-science-engine/docs/orchestration-design-guidance.md` §3.1)
 - `requested_role` names an **approved template** that exists
 - `dependencies` are satisfied — the named findings are `scientifically_accepted`,
   not merely written
@@ -315,13 +315,28 @@ important invariant you maintain.
 - Changing the scientific task requires a new committed revision from the lead. It is
   never an edit to an active run.
 
-Start specialists with `scion start <name> --type <template>`. Give each run a name
-that ties it to its work order and attempt, so `scion list` is readable months later.
+Before dispatch, resolve the approved project-scoped template from the Hub:
+
+```bash
+scion template show <template> --hub --format json
+```
+
+Confirm that `scope` is `project`, then record the returned template ID and content
+hash in the dispatch brief. If the Hub lookup fails, has another scope, or does not
+report both values, do not start the specialist. A local template with the same name
+is not evidence that the approved Hub template exists.
+
+Start specialists with
+`scion start <name> --type project:<template> --no-upload`. The explicit scope and
+`--no-upload` are mandatory: they prevent a stale local template from replacing the
+approved Hub template during non-interactive agent dispatch. Give each run a name that
+ties it to its work order and attempt, so `scion list` is readable months later.
 
 Write the dispatch brief to shared storage and pass the path — do not paste a long
 brief into a message. Every brief includes:
 
 - the work-order ID **and revision**, which the specialist must cite in its finding
+- the resolved Hub template ID and content hash
 - the decision question, verbatim from the work order — do not paraphrase it
 - the context snapshot
 - exact deliverable paths
@@ -330,6 +345,39 @@ brief into a message. Every brief includes:
   the controller's validation response before writing the retrospective or
   signaling `task_completed`
 
+Every specialist brief must also begin with this runtime preflight, before the
+scientific question, context, or any scientific tool instructions:
+
+```bash
+source /scion-volumes/tools/env.sh
+dde run preflight <RUN-ID> \
+  --harness antigravity \
+  --runtime-version "$(agy --version)"
+scion message <CONTROLLER-AGENT> \
+  "RUNTIME_READY <RUN-ID> antigravity $(agy --version)"
+```
+
+The run lifecycle around dispatch is strict:
+
+1. Create the run in `queued`, then transition it to `starting`.
+2. Start the specialist with `scion start` and the shared brief path.
+3. **Do not use `dde run transition <RUN-ID> running`.** A controller-side
+   transition cannot prove that a specialist tool call traversed its
+   `PreToolUse` hook. The CLI rejects that path.
+4. Accept the run as healthy only after both the `RUNTIME_READY` message and a
+   run record with `runtime_preflight.status == "passed"` are present. The
+   specialist's successful `dde run preflight` invocation records its harness
+   and runtime version and performs the `starting -> running` transition.
+5. If the preflight tool call cannot complete within the startup-stall window,
+   stop the agent and transition the run directly from `starting` to `failed`
+   with `failure_class: persistent_infrastructure`. Preserve the attempt. Do
+   not dispatch scientific work or repeatedly recreate an agent with the same
+   broken runtime.
+
+This is an empirical compatibility gate. Do not infer health from a container
+status, an image tag, or a version number alone: a nominally supported runtime
+is unhealthy when its actual tool-hook round trip cannot complete.
+
 Front-load the constraints. A brief whose critical limits are in the last paragraph
 will have them missed.
 
@@ -337,9 +385,11 @@ will have them missed.
 
 ## 6. Monitoring, waiting, and retries
 
-After starting an agent, signal `sciontool status blocked "<reason>"` and wait for the
-notification. **Never poll, never sleep in a loop.** You may run and wait on
-long-running commands inside your own environment; agent completion is not that.
+After starting an agent, keep its run in `starting`, signal
+`sciontool status blocked "Waiting for runtime preflight from <agent>"`, and wait for
+the notification. Verify the preflight record before treating the run as `running`.
+**Never poll, never sleep in a loop.** You may run and wait on long-running commands
+inside your own environment; agent completion is not that.
 
 Retries must be **bounded and visible**. A retry that is not in the record did not
 happen as far as anyone auditing this program can tell.
@@ -429,6 +479,8 @@ Set a recurring check every 15-20 minutes. On each heartbeat:
 
 1. **Agent status:** `scion list` — are dispatched agents still running? Has any
    stalled or crashed since the last check?
+   Also inspect runs left in `starting`: none is healthy until its
+   `runtime_preflight.status` is `passed`.
 2. **Work-order queue:** Scan `.dde/control/work-orders/` for any work order
    where `state == "committed"` that does not have a corresponding run record.
    These are committed-but-undispatched and should be intake-validated and
@@ -446,17 +498,20 @@ work.
 
 ## 6c. Startup-stall detection
 
-After starting a specialist, expect a progress signal (tool call, message, or status
-update) within 3-5 minutes. If `scion list` shows the agent is running but no
-progress has occurred:
+After starting a specialist, expect the `RUNTIME_READY` message and a passed runtime
+preflight record within 3-5 minutes. A generic container status, model response, or
+agent heartbeat is not proof that tools work. If `scion list` shows the agent is
+running but runtime preflight has not passed:
 
 1. Send `scion message <agent> "startup stall detected, sending wake" --wake` — this unblocks agents stuck in a Ready
    state due to a startup race condition where the dispatch brief arrives before
    the agent's message handler initializes.
-2. If the agent resumes normally after the wake, log the stall and recovery in the
-   run record (`stall_detected`, `wake_sent`, timestamps).
-3. If the agent does not resume after the wake, treat it as a startup failure —
-   delete and redispatch with a fresh agent.
+2. If the agent completes runtime preflight after the wake, log the stall and
+   recovery in the run record (`stall_detected`, `wake_sent`, timestamps).
+3. If runtime preflight still cannot execute, stop the agent and transition the run
+   from `starting` to `failed` with `failure_class: persistent_infrastructure` and
+   the hook or timeout detail. Do not first mark it `running`, and do not redispatch
+   the same runtime indefinitely.
 
 This is a known platform-level race condition, not an error in the work order or
 brief. Recovery is mechanical: send wake, observe, log.
