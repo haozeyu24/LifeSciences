@@ -31,4 +31,4 @@ telemetry:
 skills:
   - uri: "gh://scion-frontiers/agent-team/artifact-durability"
   - uri: "gh://scion-frontiers/agent-team/agent-state-continuity"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/artifact-conventions"

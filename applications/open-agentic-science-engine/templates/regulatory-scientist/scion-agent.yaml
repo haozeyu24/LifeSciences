@@ -23,8 +23,8 @@ telemetry:
     enabled: false
 
 skills:
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/citation-resolution"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/preclinical-safety-assessment"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/in-vivo-pk-analysis"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/compound-property-profile"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/citation-resolution"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/preclinical-safety-assessment"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/in-vivo-pk-analysis"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/compound-property-profile"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/artifact-conventions"

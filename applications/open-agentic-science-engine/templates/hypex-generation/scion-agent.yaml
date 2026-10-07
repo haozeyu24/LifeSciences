@@ -23,10 +23,10 @@ telemetry:
     enabled: false
 
 skills:
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/artifact-conventions"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/literature-search"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/citation-resolution"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/citation-verification"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/hypothesis-schema"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/debate-protocol"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/hypex-tool-setup"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/literature-search"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/citation-resolution"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/citation-verification"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/hypothesis-schema"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/debate-protocol"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/fded607bd68eaec5a298ec6e91e31f694823f33e/applications/open-agentic-science-engine/skills/hypex-tool-setup"
