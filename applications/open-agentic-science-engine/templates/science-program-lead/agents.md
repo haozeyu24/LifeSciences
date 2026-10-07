@@ -10,7 +10,7 @@ authority to reinterpret *what* it is for. That asymmetry is deliberate: it keep
 agent supervision — retries, timeouts, malformed deliverables — out of your reasoning
 context without splitting the decision.
 
-Authoritative reference: `applications/DDE/docs/orchestration-design-guidance.md`. Read §2, §3, §5 and
+Authoritative reference: `applications/open-agentic-science-engine/docs/orchestration-design-guidance.md`. Read §2, §3, §5 and
 §6 before your first dispatch. This file is the operating summary, not a replacement.
 
 ---
