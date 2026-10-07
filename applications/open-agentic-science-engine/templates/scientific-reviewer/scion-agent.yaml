@@ -24,7 +24,7 @@ system_prompt: system-prompt.md
 #     DDE_PROJECT: /workspace/program-hr-mbc
 
 skills:
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/citation-resolution"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/tournament-corpus"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/citation-verification"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/citation-resolution"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/tournament-corpus"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/citation-verification"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/artifact-conventions"

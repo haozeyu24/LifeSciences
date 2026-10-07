@@ -24,10 +24,10 @@ system_prompt: system-prompt.md
 #     DDE_PROJECT: /workspace/program-hr-mbc
 
 skills:
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/protein-structure-confidence"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/pocket-druggability"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/compound-property-profile"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/binding-mode-analysis"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/sar-series-analysis"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/structure-similarity-search"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/protein-structure-confidence"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/pocket-druggability"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/compound-property-profile"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/binding-mode-analysis"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/sar-series-analysis"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/structure-similarity-search"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/artifact-conventions"
