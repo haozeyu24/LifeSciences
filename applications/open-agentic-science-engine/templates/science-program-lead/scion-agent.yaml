@@ -17,6 +17,11 @@ description: "Science Program Lead — user-facing orchestrator and sole owner o
 agent_instructions: agents.md
 system_prompt: system-prompt.md
 
+# Scion PR #2721 documented workaround for older runtimes.
+telemetry:
+  cloud:
+    enabled: false
+
 # DDE_PROJECT is resolved by .dde/ walk-up discovery by default.
 # Set it explicitly only when the agent's workspace is not the program
 # directory — e.g. when /workspace is the dde repo:
@@ -26,6 +31,6 @@ system_prompt: system-prompt.md
 skills:
   - uri: "gh://scion-frontiers/agent-team/artifact-durability"
   - uri: "gh://scion-frontiers/agent-team/agent-state-continuity"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/artifact-conventions"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/program-state-management"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/hypothesis-entry"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/program-state-management"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/hypothesis-entry"

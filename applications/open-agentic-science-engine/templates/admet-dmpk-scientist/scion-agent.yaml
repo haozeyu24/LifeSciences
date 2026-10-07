@@ -17,10 +17,15 @@ description: "ADMET/DMPK scientist for pharmacokinetic profiling, metabolite ide
 agent_instructions: agents.md
 system_prompt: system-prompt.md
 
+# Scion PR #2721 documented workaround for older runtimes.
+telemetry:
+  cloud:
+    enabled: false
+
 skills:
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/compound-property-profile"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/admet-property-prediction"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/bioactivity-landscape"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/in-vivo-pk-analysis"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/structure-similarity-search"
-  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/compound-property-profile"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/admet-property-prediction"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/bioactivity-landscape"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/in-vivo-pk-analysis"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/structure-similarity-search"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/oase-pax8-run2-20261007-r1/applications/open-agentic-science-engine/skills/artifact-conventions"
