@@ -17,6 +17,11 @@ description: "Research Operations Controller — executes approved work orders, 
 agent_instructions: agents.md
 system_prompt: system-prompt.md
 
+# Scion PR #2721 documented workaround for older runtimes.
+telemetry:
+  cloud:
+    enabled: false
+
 # DDE_PROJECT is resolved by .dde/ walk-up discovery by default.
 # Set it explicitly only when the agent's workspace is not the program
 # directory — e.g. when /workspace is the dde repo:
@@ -26,4 +31,4 @@ system_prompt: system-prompt.md
 skills:
   - uri: "gh://scion-frontiers/agent-team/artifact-durability"
   - uri: "gh://scion-frontiers/agent-team/agent-state-continuity"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/artifact-conventions"

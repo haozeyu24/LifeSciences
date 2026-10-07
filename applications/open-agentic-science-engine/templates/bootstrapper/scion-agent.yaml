@@ -17,5 +17,10 @@ description: "Short-lived agent that provisions the DDE tools environment, runs 
 agent_instructions: agents.md
 system_prompt: system-prompt.md
 
+# Scion PR #2721 documented workaround for older runtimes.
+telemetry:
+  cloud:
+    enabled: false
+
 # No skills needed — the bootstrapper uses CLI tools directly.
 # No env vars — DDE_PROJECT is discovered by .dde/ walk-up.

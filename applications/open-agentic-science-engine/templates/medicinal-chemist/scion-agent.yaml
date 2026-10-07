@@ -17,6 +17,11 @@ description: "Medicinal chemist for SAR analysis, analog design, scaffold optimi
 agent_instructions: agents.md
 system_prompt: system-prompt.md
 
+# Scion PR #2721 documented workaround for older runtimes.
+telemetry:
+  cloud:
+    enabled: false
+
 # DDE_PROJECT is resolved by .dde/ walk-up discovery by default.
 # Set it explicitly only when the agent's workspace is not the program
 # directory — e.g. when /workspace is the dde repo:
@@ -24,8 +29,8 @@ system_prompt: system-prompt.md
 #     DDE_PROJECT: /workspace/program-hr-mbc
 
 skills:
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/compound-property-profile"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/admet-property-prediction"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/sar-series-analysis"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/structure-similarity-search"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/compound-property-profile"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/admet-property-prediction"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/sar-series-analysis"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/structure-similarity-search"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/artifact-conventions"

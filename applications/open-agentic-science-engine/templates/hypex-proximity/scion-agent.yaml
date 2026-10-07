@@ -17,7 +17,12 @@ description: "Hypothesis Proximity Agent - clusters hypotheses and adjudicates n
 agent_instructions: agents.md
 system_prompt: system-prompt.md
 
+# Scion PR #2721 documented workaround for older runtimes.
+telemetry:
+  cloud:
+    enabled: false
+
 skills:
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/artifact-conventions"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/proximity-protocol"
-  - uri: "https://github.com/GoogleCloudPlatform/LifeSciences/tree/main/applications/open-agentic-science-engine/skills/hypex-tool-setup"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/artifact-conventions"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/proximity-protocol"
+  - uri: "https://github.com/haozeyu24/LifeSciences/tree/b329b384c215461b55b80678ac0805cad5f1f8a6/applications/open-agentic-science-engine/skills/hypex-tool-setup"
